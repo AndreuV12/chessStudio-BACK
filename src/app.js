@@ -8,6 +8,7 @@ import openingRoutes from './routes/openingRoutes.js'
 
 import './config/mongo.js' // Crea la conexión a la bd
 
+console.log("Ejecutando App.js")
 const port = 3030;
 
 const app = express();

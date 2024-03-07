@@ -2,7 +2,7 @@
   "name": "chessstudio-back",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "dist/app.cjs",
   "type": "module",
   "scripts": {
     "dev": "nodemon src/app.js",
