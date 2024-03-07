@@ -38,7 +38,6 @@ app.use(session({
 }))
 
 app.use('/oauth/google/', oauthGoogleRoutes)
-
 app.use('/users/', userRoutes)
 app.use('/openings/', openingRoutes)
 

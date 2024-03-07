@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 
-if ( !process.env.ON_PRODUCTION ) dotenv.config({ path: 'config/.env' })
+if ( !process.env.ON_PRODUCTION ) dotenv.config({ path: 'src/config/.env' })
 let {
     PORT,
     DB_USER, 
