@@ -10,9 +10,5 @@
           "src": "/.*",
           "dest": "/dist/app.cjs"
         }
-    ],
-    "commands": {
-        "build": "npm run build",
-        "start": "node dist/app.cjs"
-    }
+    ]
 }
