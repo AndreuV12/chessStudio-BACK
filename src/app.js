@@ -7,9 +7,7 @@ import userRoutes from './routes/userRoutes.js'
 import openingRoutes from './routes/openingRoutes.js'
 
 import './config/mongo.js' // Crea la conexión a la bd
-
-console.log("Ejecutando App.js")
-const port = 3030;
+import { PORT } from './config/config.js';
 
 const app = express();
 
@@ -42,6 +40,6 @@ app.use('/oauth/google/', oauthGoogleRoutes)
 app.use('/users/', userRoutes)
 app.use('/openings/', openingRoutes)
 
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Servidor escuchando en http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Servidor lanzado en ${PORT}`);
 });
