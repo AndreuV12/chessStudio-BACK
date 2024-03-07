@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon src/app.js",
     "build": "webpack",
-    "start": "node dist/app.js"
+    "start": "node dist/app.cjs"
   },
   "author": "",
   "license": "ISC",
