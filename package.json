@@ -3,12 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.cjs",
-  "engines": {
-    "node": "18.x"
-  },
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/app.js",
     "build": "webpack",
     "start": "node dist/app.cjs"
   },
