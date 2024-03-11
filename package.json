@@ -2,7 +2,7 @@
   "name": "chessstudio-back",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.cjs",
+  "main": "app.cjs",
   "engines": {
     "node": "18.x"
   },
