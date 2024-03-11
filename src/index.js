@@ -43,3 +43,5 @@ app.use('/openings/', openingRoutes)
 app.listen(PORT, () => {
   console.log(`Servidor lanzado en ${PORT}`);
 });
+
+export default app
