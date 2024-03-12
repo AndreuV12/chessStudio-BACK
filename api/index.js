@@ -29,8 +29,7 @@ app.use(session({
   secret: "pwd",
   name: "session-cookie",
   cookie: {
-      maxAge: 60*60*1000,
-      httpOnly: true,
+    maxAge: 60*60*1000,
   },
   resave: false,
   saveUninitialized: false
