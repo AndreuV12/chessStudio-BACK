@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors'
 import session from 'express-session'
 
-import oauthGoogleRoutes from './routes/google_oauth.js'
+import oauthGoogleRoutes from '../routes/google_oauth.js'
 import userRoutes from '../routes/userRoutes.js'
 import openingRoutes from '../routes/openingRoutes.js'
 

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { google } from 'googleapis'
 import { Router } from "express"
-import { GOOGLE_CLIENT, GOOGLE_SECRET, SERVER_URL, CLIENT_URL } from '../../config/config.js'
+import { GOOGLE_CLIENT, GOOGLE_SECRET, SERVER_URL, CLIENT_URL } from '../config/config.js'
 
 //express
 const google_router = Router()
