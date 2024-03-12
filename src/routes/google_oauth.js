@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { google } from 'googleapis'
 import { Router } from "express"
-console.log(SERVER_URL);
 import { GOOGLE_CLIENT, GOOGLE_SECRET, SERVER_URL, CLIENT_URL } from '../config/config.js'
 
 //express
