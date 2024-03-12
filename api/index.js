@@ -2,12 +2,12 @@ import express from 'express';
 import cors from 'cors'
 import session from 'express-session'
 
-// import oauthGoogleRoutes from './routes/google_oauth.js'
-import userRoutes from './routes/userRoutes.js'
-import openingRoutes from './routes/openingRoutes.js'
+import oauthGoogleRoutes from './routes/google_oauth.js'
+import userRoutes from '../routes/userRoutes.js'
+import openingRoutes from '../routes/openingRoutes.js'
 
-import './config/mongo.js' // Crea la conexión a la bd
-import { PORT } from './config/config.js';
+import '../config/mongo.js' // Crea la conexión a la bd
+import { PORT } from '../config/config.js';
 
 const app = express();
 
@@ -36,7 +36,7 @@ app.use(session({
   saveUninitialized: false
 }))
 
-// app.use('/oauth/google/', oauthGoogleRoutes)
+app.use('/oauth/google/', oauthGoogleRoutes)
 app.use('/users/', userRoutes)
 app.use('/openings/', openingRoutes)
 
