@@ -5,9 +5,11 @@ import authRoutes from '../routes/auth.js'
 import userRoutes from '../routes/userRoutes.js'
 import openingRoutes from '../routes/openingRoutes.js'
 
-import '../config/mongo.js' // Crea la conexión a la bd
-import { PORT, ENVIRONMENT  } from '../config/config.js';
+import dotenv from 'dotenv'
+dotenv.config()
 
+import '../config/mongo.js' // Crea la conexión a la bd
+const { PORT, ENVIRONMENT } = process.env
 const app = express();
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -24,6 +26,10 @@ app.use(cors({
 app.get('/', (_req, res) => {
   res.send(`¡Hola, ${ENVIRONMENT}!`);
 });
+
+app.get('/env',(_req,res)=>{
+  res.json(process.env)
+})
 app.use('/', authRoutes)
 app.use('/users/', userRoutes)
 app.use('/openings/', openingRoutes)
