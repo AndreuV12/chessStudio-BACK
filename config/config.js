@@ -8,7 +8,8 @@ let {
     GOOGLE_CLIENT, 
     GOOGLE_SECRET,
     SERVER_URL,
-    CLIENT_URL
+    CLIENT_URL,
+    ENVIRONMENT
 } = process.env
 
 export  {  
@@ -18,5 +19,6 @@ export  {
     GOOGLE_CLIENT, 
     GOOGLE_SECRET,
     SERVER_URL,
-    CLIENT_URL
+    CLIENT_URL,
+    ENVIRONMENT
 }

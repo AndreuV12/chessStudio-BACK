@@ -2,6 +2,7 @@ import { Router } from "express"
 import bodyParser from 'body-parser';
 import User from "../models/userModel.js"
 import authenticationMiddleware from "../middlewares/authenticationMiddleware.js";
+
 const router = Router()
 router.use(bodyParser.json());
 
@@ -20,7 +21,8 @@ router.post('/', async (req, res) => {
 
 // Obtener datos del usuario a partir de la sesion
 router.get('/me', authenticationMiddleware,  async (req, res) => {
-  return res.json(req.session.user)
+    console.log(req.session, Object.keys(req.session), 'ME')
+    return res.json(req.user)
 })
 
 export default router
