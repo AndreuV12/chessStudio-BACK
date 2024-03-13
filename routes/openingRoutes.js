@@ -14,7 +14,6 @@ router.post('/', async (req, res) => {
         await newOpening.save();  
         res.status(201).json({ message: 'Apertura creada con éxito', opening: newOpening });
     } catch (error) {
-        console.error('Error al crear la apertura:', error);
         res.status(500).json({ message: 'Error al crear la apertura' });
     }
 });
@@ -22,11 +21,10 @@ router.post('/', async (req, res) => {
 // Obtener todos los openings de un usuario (autenticado a través de la sesión)
 router.get('/', authenticationMiddleware, async (req, res) => {
     try {
-        const userEmail = req.session.user.email;
-        const openings = await Opening.getUserOpenings(userEmail);
+        const email = req.user.email;
+        const openings = await Opening.getUserOpenings(email);
         res.status(200).json(openings);
     } catch (error) {
-        console.error('Error al obtener openings del usuario:', error);
         res.status(500).json({ message: 'Error al obtener openings del usuario' });
     }
 });
@@ -47,7 +45,6 @@ router.get('/:openingId', authenticationMiddleware, async (req, res) => {
         }
         res.status(200).json( opening );
     } catch (error) {
-        console.error('Error al obtener la apertura por ID:', error);
         res.status(500).json({ message: 'Error al obtener la apertura por ID' });
     }
 });
@@ -70,7 +67,6 @@ router.put('/:openingId', authenticationMiddleware, async (req, res) => {
 
         res.status(200).json({ message: 'Apertura editada con éxito', opening: editedOpening });
     } catch (error) {
-        console.error('Error al editar la apertura por ID:', error);
         res.status(500).json({ message: 'Error al editar la apertura por ID' });
     }
 });

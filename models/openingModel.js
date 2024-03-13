@@ -8,7 +8,6 @@ const openingSchema = new mongoose.Schema({
 })
 
 openingSchema.statics.getUserOpenings = function (email) {
-    console.log("Email", email);
     return this.find({ email });
 };
 

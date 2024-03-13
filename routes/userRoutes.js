@@ -14,14 +14,14 @@ router.post('/', async (req, res) => {
         await newUser.save();  
         res.status(201).json({ message: 'Usuario creado con éxito', user: newUser });
     } catch (error) {
-        console.error('Error al crear el usuario:', error);
         res.status(500).json({ message: 'Error al crear el usuario' });
     }
 });
 
 // Obtener datos del usuario a partir de la sesion
 router.get('/me', authenticationMiddleware,  async (req, res) => {
-    return res.json(req.user)
+    const user = await User.getUserById(req.user.userId)
+    return res.json(user)
 })
 
 export default router
