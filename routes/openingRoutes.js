@@ -32,7 +32,7 @@ router.get('/', authenticationMiddleware, async (req, res) => {
 // Obtener un opening específico por ID
 router.get('/:openingId', authenticationMiddleware, async (req, res) => {
     try {
-        const userEmail = req.session.user.email;
+        const userEmail = req.user.email;
         const opening = await Opening.getOpeningById(req.params.openingId);
         
         if (!opening) {
@@ -52,9 +52,8 @@ router.get('/:openingId', authenticationMiddleware, async (req, res) => {
 // Editar un opening específico por ID
 router.put('/:openingId', authenticationMiddleware, async (req, res) => {
     try {
-        const userEmail = req.session.email;
+        const userEmail = req.user.email;
         const openingId = req.params.openingId;
-
         // Verifica que el opening pertenece al usuario que ha iniciado sesión
         const opening = await Opening.getOpeningById(openingId);
         if (!opening || opening.email !== userEmail) {
