@@ -9,6 +9,7 @@ router.get('/login', function (req, res) {
     // const token = jwt.sign({ userId: andreuId }, secretKey, { expiresIn: '1h' });
     const token = jwt.sign({ userId: andreuId, email: andreuEmail }, secretKey); // NO EXPIRA
     res.json({ token });
+    console.log(res)
     return
 })
 

@@ -18,7 +18,7 @@ app.use(cors({
   origin: [
     'http://192.168.1.120:3000', 
     'http://localhost:3000',
-    'https://chess-studio-web.vercel.app/'
+    'https://chess-studio-web.vercel.app'
   ],
   credentials: true
 }))
