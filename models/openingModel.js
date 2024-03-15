@@ -16,7 +16,7 @@ openingSchema.statics.getOpeningById = function (openingId) {
 };
 
 openingSchema.statics.editOpeningById = function (openingId, updatedOpening) { 
-    const editableFields = ['data', 'shown_pos']
+    const editableFields = ['data', 'shown_pos', 'name']
     const updateFields = {}
     editableFields.forEach((field)=>{
         if (field in updatedOpening)  updateFields[field] = updatedOpening[field]
