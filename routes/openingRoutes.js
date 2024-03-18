@@ -7,15 +7,17 @@ const router = Router();
 router.use(bodyParser.json());
 
 // CREAR APERTURA
-router.post('/', async (req, res) => {
-    try {
-        const { name, shown_pos, data, email } = req.body;  
-        const newOpening = new Opening({ name, shown_pos, data, email });
-        await newOpening.save();  
-        res.status(201).json({ message: 'Apertura creada con éxito', opening: newOpening });
-    } catch (error) {
-        res.status(500).json({ message: 'Error al crear la apertura' });
-    }
+router.post('/', authenticationMiddleware, async (req, res) => {
+    const email = req.user.email;
+    const { name, shown_pos, data } = req.body;  
+    const newOpening = new Opening({ name, shown_pos, data, email });
+    newOpening.save()
+    .then(()=>{
+        res.status(201).json(newOpening);
+    })
+    .catch ((error) => {
+        res.status(500).json({ message: 'Error al crear la apertura', error });
+    })
 });
 
 // Obtener todos los openings de un usuario (autenticado a través de la sesión)
