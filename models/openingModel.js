@@ -28,6 +28,10 @@ openingSchema.statics.editOpeningById = function (openingId, updatedOpening) {
     )    
 };
 
+openingSchema.statics.deleteOpeningById = function(openingId) {
+    return this.findByIdAndDelete(openingId);
+};
+
 const Opening = mongoose.model('openings', openingSchema)
 
 export default Opening

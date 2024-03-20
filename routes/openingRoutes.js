@@ -72,4 +72,24 @@ router.put('/:openingId', authenticationMiddleware, async (req, res) => {
     }
 });
 
+router.delete('/:openingId', authenticationMiddleware, async (req, res) => {
+    try {
+        const userEmail = req.user.email;
+        const openingId = req.params.openingId;
+        
+        // Verifica que el opening pertenece al usuario que ha iniciado sesión
+        const opening = await Opening.getOpeningById(openingId);
+        if (!opening || opening.email !== userEmail) {
+            return res.status(403).json({ message: 'No tienes permiso para borrar esta apertura' });
+        }
+
+        // Elimina el opening
+        await Opening.deleteOpeningById(openingId);
+
+        res.status(200).json({ message: 'Apertura eliminada con éxito' });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al eliminar la apertura por ID' });
+    }
+});
+
 export default router;
