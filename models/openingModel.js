@@ -5,7 +5,9 @@ const openingSchema = new mongoose.Schema({
     shown_pos: Object,
     data: Object,
     email: String
-})
+}, {
+    versionKey: false // Esto evita que se guarde el campo __v en los documentos
+});
 
 openingSchema.statics.getUserOpenings = function (email) {
     return this.find({ email });

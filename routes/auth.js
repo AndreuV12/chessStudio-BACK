@@ -15,7 +15,6 @@ router.get('/login', function (req, res) {
 router.post('/login', async function (req, res) {
     const { email, password } = req.body
     const matchedUser = await User.getUserByEmail(email)
-    console.log(matchedUser);
     if (!matchedUser) {
         return res.status(404).json({ error: 'Usuario no encontrado' });
     }
@@ -26,5 +25,17 @@ router.post('/login', async function (req, res) {
     res.json({ token });
     return
 })
+
+router.post('/signup', async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+        const newUser = new User({ username, email, password });
+        await newUser.save();  
+        const token = jwt.sign({ userId: newUser.id, email }, secretKey);
+        res.status(201).json({ token, message: 'Usuario creado con éxito', user: newUser });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al crear el usuario' });
+    }
+});
 
 export default router
