@@ -9,8 +9,8 @@ router.use(bodyParser.json());
 // CREAR USUARIO
 router.post('/', async (req, res) => {
     try {
-        const { username, email, accessToken, refreshToken } = req.body;  
-        const newUser = new User({ username, email, accessToken, refreshToken });
+        const { username, email, password } = req.body;
+        const newUser = new User({ username, email, password });
         await newUser.save();  
         res.status(201).json({ message: 'Usuario creado con éxito', user: newUser });
     } catch (error) {
